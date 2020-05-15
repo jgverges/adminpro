@@ -9,6 +9,9 @@ import { PagesModule } from './pages/pages.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
+// temporal
+import { FormsModule } from '@angular/forms';
+/* import { GraficoDonaComponent } from './component/grafico-dona/grafico-dona.component';  */
 
 
 @NgModule({
@@ -20,6 +23,7 @@ import { RegisterComponent } from './login/register.component';
   imports: [
     BrowserModule,
     APP_ROUTES,
+    FormsModule,
     PagesModule
   ],
   providers: [],

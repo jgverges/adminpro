@@ -1,0 +1,14 @@
+<h3>{{leyenda}} {{progreso}}</h3>
+<div class="input-group mb-3">
+    <div class="input-group-prepend" id="button-addon3">
+      <button class="btn btn-primary" type="button" (click)="cambiarValor(-5)">
+          <i class="mdi mdi-account-circle"></i>
+        </button>
+    </div>
+    <input #textProgress type="number" class="form-control" name="progreso" [(ngModel)]="progreso" (ngModelChange)="onChanges($event)" min="0" max="100">
+    <button class="btn btn-primary " type="button" (click)="cambiarValor(+5)">
+        <i class="mdi mdi-account-alert"></i>
+
+    </button>
+</div>         
+
