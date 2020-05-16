@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 // charts doughnut
 import { ChartType } from 'chart.js';
 import { MultiDataSet, Label } from 'ng2-charts';
@@ -10,7 +10,7 @@ import { MultiDataSet, Label } from 'ng2-charts';
   ]
 })
 export class Graficas1Component implements OnInit {
-
+  @Input() valor;
 /*   public doughnutChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
   public doughnutChartData: MultiDataSet = [
     [350, 450, 100],
@@ -53,6 +53,9 @@ export class Graficas1Component implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+  captarHijo(event){
+    this.valor=event+"222222222";
   }
 
 }
