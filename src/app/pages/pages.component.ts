@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+
+declare function init_pluguins();
+ 
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
@@ -10,7 +13,8 @@ export class PagesComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    init_pluguins();
   }
 
 }

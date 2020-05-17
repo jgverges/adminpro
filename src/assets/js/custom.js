@@ -4,6 +4,8 @@ Author: Wrappixel
 Email: niravjoshi87@gmail.com
 File: js
 */
+function init_pluguins() {
+
 $(function() {
     "use strict";
     $(function() {
@@ -155,3 +157,7 @@ $(function() {
     });
 
 });
+
+
+
+} /* function init_pluguins */
