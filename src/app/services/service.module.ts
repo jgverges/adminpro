@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import {
   SettingsService,
   SidebarService,
-  SharedService
+  SharedService,
+  UsuarioService
  } from './service.index';
 
 
@@ -15,7 +16,8 @@ import {
   providers: [
     SettingsService,
     SidebarService,
-    SharedService
+    SharedService,
+    UsuarioService
   ],
   declarations: []
 })

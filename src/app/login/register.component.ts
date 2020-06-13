@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+import * as swal from 'sweetalert';
+
+import { UsuarioService } from '../services/service.index';
 // declaramos la función de iniciación que hemos creado en asstes/js/custom.js
 declare function init_pluguins();
 
@@ -12,7 +16,10 @@ export class RegisterComponent implements OnInit {
 
   forma: FormGroup;
 
-  constructor() { }
+  constructor(
+    public _usuarioService: UsuarioService
+
+  ) { }
 
   sonIguales( campo1:string,campo2:string) {
 
@@ -64,7 +71,7 @@ export class RegisterComponent implements OnInit {
     }
 
     if ( !this.forma.value.condiciones){
-      console.log("debe aceptar condiciones");
+      swal("Importante!", "Debe aceptar las condicioens!", "warning");
       return;
     }
 
