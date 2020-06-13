@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import * as swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 import { UsuarioService } from '../services/service.index';
+import { Usuario } from '../models/usuario.model';
+import { Router } from '@angular/router';
 // declaramos la función de iniciación que hemos creado en asstes/js/custom.js
 declare function init_pluguins();
 
@@ -17,8 +19,8 @@ export class RegisterComponent implements OnInit {
   forma: FormGroup;
 
   constructor(
-    public _usuarioService: UsuarioService
-
+    public _usuarioService: UsuarioService,
+    public router: Router
   ) { }
 
   sonIguales( campo1:string,campo2:string) {
@@ -63,7 +65,6 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-
   registrarUsuario(){
 
     if ( this.forma.invalid ){
@@ -71,12 +72,22 @@ export class RegisterComponent implements OnInit {
     }
 
     if ( !this.forma.value.condiciones){
-      swal("Importante!", "Debe aceptar las condicioens!", "warning");
-      return;
+     // swal("Importante!", "Debe aceptar las condicioens!", "warning");
+     Swal.fire({
+      title: 'Importante',
+      text: 'Debe aceptar las condiciones',
+      icon: 'error'
+    });
+     return;
     }
+    let usuario = new Usuario(
+      this.forma.value.nombre,
+      this.forma.value.correo,
+      this.forma.value.password
+    );
 
-
-    console.log( this.forma.value);
+    this._usuarioService.crearUsuario( usuario)
+            .subscribe( resp => this.router.navigate(['/login']));
   }
 
 }

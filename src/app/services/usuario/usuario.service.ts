@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../../models/usuario.model';
 import { HttpClient } from '@angular/common/http';
+import { URL_SERVICIOS } from '../../config/config';
+import { map } from 'rxjs/operators';
 
 @Injectable({   providedIn: 'root' })
 export class UsuarioService {
@@ -14,7 +16,26 @@ export class UsuarioService {
 
    crearUsuario( usuario:Usuario ){
 
-    
+    let url= URL_SERVICIOS + '/usuario';
 
+    // map ???
+ //    return this.http.get<Model>( url, { params } )
+ //             .pipe(
+ //                map( resp => resp)
+ //              );
+    //
+    return this.http.post(url, usuario).pipe
+      ( map( (resp:any) => {
+        alert('Usuario creado : '+ usuario.email);
+        return resp.usuario;
+      }) );
+    
+/* Original falla   
+ .map( (resp:any) => {
+
+               alert('Usuario creado');
+              return resp.usuario;
+            });
+ */
    }
 }
